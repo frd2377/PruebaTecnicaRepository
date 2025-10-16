@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  gestionproductosdb:
+    image: postgres:18
+    container_name: GestionProductosDB
+    environment:
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  registrotransaccionesdb:
+    image: postgres:18
+    container_name: RegistroTransaccionesDB
+    environment:
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5433:5432"
+    networks:
+      - backend
+
+  gestionproductos:
+    image: gestionproductos
+    container_name: GestionProductos
+    ports:
+      - "7030:7030"
+    depends_on:
+      - gestionproductosdb
+    networks:
+      - backend
+
+  registrotransacciones:
+    image: registrotransacciones
+    container_name: RegistroTransacciones
+    ports:
+      - "7227:7227"
+    depends_on:
+      - registrotransaccionesdb
+    networks:
+      - backend
+
+networks:
+  backend:
