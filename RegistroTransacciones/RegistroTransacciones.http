@@ -1,0 +1,6 @@
+@RegistroTransacciones_HostAddress = http://localhost:5063
+
+GET {{RegistroTransacciones_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
