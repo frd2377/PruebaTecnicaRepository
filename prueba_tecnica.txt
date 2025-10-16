@@ -1,0 +1,51 @@
+-- crear los servicios
+docker-compose up -d
+
+-- conectarse al contenedor
+docker exec -it GestionProductosDB psql -U postgres
+
+-- Crear la base de datos
+CREATE DATABASE gestionproductosdb;
+
+--conectarse
+\c gestionproductosdb
+
+-- Tabla de producto
+CREATE TABLE productos (
+    producto_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
+    imagen VARCHAR(255),
+    precio NUMERIC(10, 2) NOT NULL,
+    stock INT NOT NULL
+);
+
+--cerramos
+exit
+
+-----------------------------------------------------------------------------------------------------------------------
+
+-- conectarse al contenedor
+docker exec -it RegistroTransaccionesDB psql -U postgres
+
+-- Crear la base de datos
+CREATE DATABASE registrotransaccionesdb;
+
+--conectarse
+\c registrotransaccionesdb
+
+-- Tabla de transaccion
+CREATE TABLE transaccion (
+    transaccion_id serial primary key,
+    fecha timestamp with time zone not null,
+    tipo_transaccion varchar(255) not null,
+    producto_id int not null,
+    cantidad int not null,
+    precio_unitario decimal(10, 2),
+    precio_total decimal(10, 2),
+    detalle varchar(255)
+);
+
+--cerramos
+exit
