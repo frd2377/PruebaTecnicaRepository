@@ -1,0 +1,49 @@
+<form [formGroup]="editarForm" class="bg-white flex-1 justify-items-center rounded-lg overflow-hidden p-5">
+    <!-- Contenido del formulario -->
+    <div class="p-5 space-y-4 w-1/2">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Imagen</label>
+            <input type="text" formControlName="imagen" class="w-full p-2 border border-gray-300 rounded" />
+        </div>
+        <!-- Nombre -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Nombre:</label>
+            <input type="text" formControlName="nombre" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <!-- Descripción -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Descripción:</label>
+            <input formControlName="descripcion" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <!-- Categoría -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Categoría:</label>
+            <input type="text" formControlName="categoria" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <!-- Precio -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Precio:</label>
+            <input type="number" step="0.01" formControlName="precio"
+                class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <!-- Stock -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Stock:</label>
+            <input type="number" formControlName="stock" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+         <button (click)="editarProducto()"
+            class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-200">
+            Guardar
+        </button>
+        <button (click)="cancelar()"
+            class="bg-red-500 text-white px-4 py-2 ml-3 rounded-md hover:bg-red-600 transition duration-200">
+            Cancelar
+        </button>
+    </div>
+    
+</form>

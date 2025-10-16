@@ -1,0 +1,44 @@
+<form [formGroup]="crearForm" class="bg-white flex-1 justify-items-center rounded-lg overflow-hidden p-5">
+    <div class="p-5 space-y-4 w-1/2">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Imagen</label>
+            <input type="text" formControlName="imagen" class="w-full p-2 border border-gray-300 rounded" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Nombre:</label>
+            <input type="text" formControlName="nombre" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Descripción:</label>
+            <input formControlName="descripcion" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Categoría:</label>
+            <input type="text" formControlName="categoria" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Precio:</label>
+            <input type="number" step="0.01" formControlName="precio"
+                class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Stock:</label>
+            <input type="number" formControlName="stock" class="mt-1 block w-full border border-gray-300 rounded p-2" />
+        </div>
+
+         <button (click)="guardarProducto()"
+            class="bg-green-500 text-white px-4 py-2 mr-3 rounded-md hover:bg-green-600 transition duration-200">
+            Guardar
+        </button>
+        <button (click)="cancelar()"
+            class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200">
+            Cancelar
+        </button>
+    </div>
+    
+</form>

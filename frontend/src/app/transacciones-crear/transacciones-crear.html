@@ -1,0 +1,60 @@
+<form [formGroup]="transaccionForm" class="bg-white flex justify-center items-center overflow-hidden p-5">
+    <div class="p-5 space-y-4 w-1/2">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Detalle:</label>
+            <input type="text" formControlName="detalle"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Producto:</label>
+            <select (change)="changeProducto($event)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option value="0" [id]="0"></option>
+                @for (producto of productosList(); track $index) {
+                <option [value]="producto.productoId" [id]="producto.productoId">{{producto.nombre}}</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Tipo de Transacción:</label>
+            <select
+                formControlName ="tipoTransaccion" 
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option value="compra">Compra</option>
+                <option value="venta">Venta</option>
+            </select>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Cantidad:</label>
+            <input (input)="changeCantidad($event)" type="number" step="1" min="1" formControlName="cantidad"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Precio Unitario:</label>
+            <input type="number" readonly value="{{ productoSeleccionado ? productoSeleccionado.precio : 0 }}"
+                class="w-full p-2 border border-gray-300 rounded bg-gray-100 text-gray-600" />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Precio Total:</label>
+            <input type="number" readonly [value]="precioTotal"
+                class="w-full p-2 border border-gray-300 rounded bg-gray-100 text-gray-600" />
+        </div>
+
+        <button
+            (click)="guardar()" 
+            type="submit"
+            class="bg-green-500 text-white px-4 py-2 mr-3 rounded-md hover:bg-green-600 transition duration-200">
+            Guardar
+        </button>
+        <button
+            (click)="cancelar()" 
+            type="button"
+            class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200">
+            Cancelar
+        </button>
+    </div>
+</form>

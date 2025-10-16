@@ -1,0 +1,23 @@
+<nav class="bg-gray-950 p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="text-white text-xl font-bold">
+            <span>Prueba Técnica</span>
+        </div>
+
+        <div class="space-x-4">
+            <button (click)="navigatePage('productos')"
+                class="text-white cursor-pointer px-4 py-2 rounded-md transition duration-200">
+                Gestión de Productos
+            </button>
+            <button (click)="navigatePage('transacciones')"
+                class="text-white cursor-pointer px-4 py-2 rounded-md transition duration-200">
+                Registro de Transacciones
+            </button>
+            <button (click)="navigatePage('busqueda')"
+                class="text-white cursor-pointer px-4 py-2 rounded-md transition duration-200">
+                Búsqueda y Filtrado
+            </button>
+        </div>
+    </div>
+</nav>
+<router-outlet />

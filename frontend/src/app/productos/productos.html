@@ -1,0 +1,40 @@
+<div class="container mx-auto px-4 py-8">
+    <!-- Botón para crear producto -->
+    <div class="mb-6">
+        <button (click)="navigate()" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition duration-200">
+            Crear Producto
+        </button>
+    </div>
+
+    <!-- Grid de productos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @for (producto of productosList(); track $index){
+        <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+            <img class="w-full h-48 object-cover" [src]="producto.imagen" [alt]="producto.imagen">
+
+            <div class="p-4">
+                <h3 class="text-lg font-semibold text-gray-900">Nombre: {{producto.nombre}}</h3>
+                <p class="text-sm text-gray-700 mt-2">Descripcion: {{producto.descripcion}}</p>
+                <p class="text-sm text-gray-600 mt-1">Categoría: <span
+                        class="font-semibold text-blue-500">{{producto.categoria}}</span></p>
+                <p class="text-sm text-gray-700 mt-2">Precio: {{producto.precio}}</p>
+                <p class="text-sm text-gray-600 mt-1">Stock: <span
+                        class="font-semibold text-green-500">{{producto.stock}}</span></p>
+            </div>
+
+            <div class="flex justify-between p-4">
+                <button
+                    (click)="editar(producto.productoId)"
+                    class="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-200">
+                    Editar Producto
+                </button>
+                <button
+                    (click)="eliminar(producto.productoId)"
+                    class="ml-1 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200">
+                    Eliminar Producto
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+</div>
