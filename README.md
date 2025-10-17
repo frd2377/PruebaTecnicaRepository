@@ -120,9 +120,3 @@ En la raíz del proyecto, ejecuta:
 5. Cierra la conexión:
 
    exit
-
-- Para levantar el servidor de desarrollo y ejecutar el frontend, usa:
-  ```bash
-  ng serve
-
-      
