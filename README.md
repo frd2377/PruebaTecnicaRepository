@@ -1,24 +1,29 @@
-Requerimientos:
-  Frontend
-    Nodejs v22.20.0 (LTS)
-    AngularCLI 20.3.5
+# Requerimientos
 
-  Backend
-    net8.0
+## Frontend
+- **Node.js** v22.20.0 (LTS)
+- **Angular CLI** v20.3.5
 
-  Docker
-    Docker Desktop 4.46.0
+## Backend
+- **.NET 8.0**
 
-Intsalacion:
-  Descargar todo el proyecto
+## Docker
+- **Docker Desktop** v4.46.0
 
-  Frontend
-    En la raiz del frontend ejecutamos
-      npm install
-      
-    Levantamos el frontend
-      ng serve
+# Instalación
 
-  Backend
+## 1. Descargar el proyecto
+Clona o descarga el repositorio completo a tu máquina local.
+
+## 2. Configuración del Frontend
+
+- Navega a la raíz del directorio del frontend.
+- Ejecuta el siguiente comando para instalar las dependencias:
+  ```bash
+  npm install
+
+- Para levantar el servidor de desarrollo y ejecutar el frontend, usa:
+  ```bash
+  ng serve
 
       
